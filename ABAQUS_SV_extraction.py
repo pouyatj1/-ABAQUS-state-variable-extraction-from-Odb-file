@@ -87,3 +87,41 @@ def ABAQUS_SV_extraction(OdbName, ElsetName):
     Odb.close()
 
 #--------------------------------------------------------------------
+#--------------------------------------------------------------------
+if __name__ == '__main__':
+
+    OdbName = ElsetName = None
+    ArgList = argv
+    ArgNb = len(ArgList)
+    print ' '
+    print 'Start'
+    i=1
+
+    while (i < ArgNb):
+
+        if (ArgList[i][:2] == "-o"):
+
+            i += 1
+            OdbName = ArgList[i]
+            i +=1
+            print '-odb'
+
+        elif (ArgList[i][:2] == "-e"):
+
+            i += 1
+            ElsetName = ArgList[i]
+            i += 1
+            print '-elset'
+
+        elif (ArgList[i][:2] == "-d"):
+
+            i += 1
+            DirNb = ArgList[i]
+            i += 1
+            print '-dir'
+
+    if not (ElsetName):
+        ElsetName = 'ETOUT'
+        print '-elset default'
+
+    ABAQUS_SV_extraction(OdbName, ElsetName)
