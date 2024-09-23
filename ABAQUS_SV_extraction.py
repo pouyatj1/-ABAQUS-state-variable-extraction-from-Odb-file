@@ -113,12 +113,6 @@ if __name__ == '__main__':
             i += 1
             print '-elset'
 
-        elif (ArgList[i][:2] == "-d"):
-
-            i += 1
-            DirNb = ArgList[i]
-            i += 1
-            print '-dir'
 
     if not (ElsetName):
         ElsetName = 'ETOUT'
